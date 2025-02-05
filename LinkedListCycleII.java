@@ -1,13 +1,13 @@
-/// https://leetcode.com/problems/linked-list-cycle-ii/description/
-// solved with 0ms
+package LeetCodeProblem;
+
 public class LinkedListCycleII {
-    public ListNode detectCycle(ListNode head) {
+    public Node detectCycle(Node head) {
         int cycleLen = cycleSize(head);
         if (cycleLen == 0) {
             return null;
         }
-        ListNode first = head;
-        ListNode second = head;
+        Node first = head;
+        Node second = head;
         while (cycleLen > 0) {
             first = first.next;
             cycleLen--;
@@ -19,9 +19,9 @@ public class LinkedListCycleII {
         return first;
     }
 
-    public int cycleSize(ListNode head) {
-        ListNode slow = head;
-        ListNode fast = head;
+    public int cycleSize(Node head) {
+        Node slow = head;
+        Node fast = head;
 
         while (fast != null && fast.next != null) {
             fast = fast.next.next;

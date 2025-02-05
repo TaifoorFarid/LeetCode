@@ -1,7 +1,23 @@
-// https://leetcode.com/problems/set-matrix-zeroes/
-// 2 ms Solution
-class SetMatrixZeroes {
-    public void setZeroes(int[][] matrix) {
+package LeetCodeProblem;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class SetMatrixZeroes {
+
+    public static void main(String[] args) {
+        int[][] matrix = {
+                {0,1,2,0},
+                {3,4,5,2},
+                {1,3,1,5}
+        };
+        setZeroes(matrix);
+
+        for (int[] i : matrix) {
+            System.out.println(Arrays.toString(i));
+        }
+    }
+    public static void setZeroes(int[][] matrix) {
         ArrayList<ArrayList<Integer>> zero = new ArrayList<>();
 
         for (int i = 0; i < matrix.length; i++) {
@@ -23,7 +39,7 @@ class SetMatrixZeroes {
         }
     }
 
-    private void fillCol(int[][] matrix, int col) {
+    private static void fillCol(int[][] matrix, int col) {
         for (int i = 0; i < matrix.length; i++) {
             matrix[i][col] = 0;
         }
