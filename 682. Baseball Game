@@ -1,0 +1,33 @@
+class Solution(object):
+    def calPoints(self, operations):
+        ans = []
+
+        for element in operations:
+            if element == '+':
+                self.managePlus(ans)
+            elif element == 'D':
+                self.manageD(ans)
+            elif element == 'C':
+                self.manageC(ans)
+            else:
+                ans.append(element)
+        
+        return self.calculateTotal(ans)
+
+    
+    def managePlus(self, ans):
+        num1 = int(ans[-1])
+        num2 = int(ans[-2])
+        ans.append(num1 + num2)
+    
+    def manageD(self, ans):
+        ans.append(int(ans[-1]) * 2)
+
+    def manageC(self, ans):
+        ans.pop()
+    
+    def calculateTotal(self, ans):
+        res = 0
+        for num in ans:
+            res += int(num)
+        return res
