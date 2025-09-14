@@ -1,0 +1,12 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        group = {}
+
+        for string in strs:
+            word = ''.join(sorted(string))
+
+            if word not in group:
+                group[word] = []
+            group[word].append(string)
+        
+        return list(group.values())
